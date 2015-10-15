@@ -9,12 +9,12 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Path("currentUser")
-public class UserService {
+@Path("userid")
+public class JaasUserGetter {
    
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getCurrentUser(@Context HttpServletRequest req){
+    public Response getUserid(@Context HttpServletRequest req){
         return Response.ok(new Gson().toJson(req.getUserPrincipal().getName())).build();
     }
 }
