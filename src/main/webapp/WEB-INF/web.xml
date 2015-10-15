@@ -10,7 +10,7 @@
     
     <servlet>
         <servlet-name>jersey</servlet-name>
-        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+        <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
         <init-param>
             <param-name>jersey.config.server.provider.packages</param-name>
             <param-value>
@@ -26,20 +26,27 @@
     </servlet-mapping>
     
     <security-constraint>
-        <web-resource-collection>
-            <web-resource-name>users</web-resource-name>
-            <url-pattern>/api/*</url-pattern>
-        </web-resource-collection>
-        <auth-constraint>
-            <role-name>Administrators</role-name>
-        </auth-constraint>
-    </security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Protected Area</web-resource-name>
+      <url-pattern>/index.html</url-pattern>
+      <url-pattern>/api/*</url-pattern>
+      <url-pattern>/app/*</url-pattern>
+      <http-method>PUT</http-method>
+      <http-method>DELETE</http-method>
+      <http-method>GET</http-method>
+      <http-method>POST</http-method>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>user</role-name>
+    </auth-constraint>
+  </security-constraint>
 
-    <security-role>
-        <role-name>Administrators</role-name>
-    </security-role>
+  <login-config>
+    <auth-method>BASIC</auth-method>
+    <realm-name>myrealm</realm-name>
+  </login-config>
 
-    <login-config>
-        <auth-method>BASIC</auth-method>
-    </login-config>
+  <security-role>
+    <role-name>user</role-name>
+  </security-role>
 </web-app>

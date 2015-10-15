@@ -2,7 +2,7 @@
 <weblogic-web-app xmlns="http://xmlns.oracle.com/weblogic/weblogic-web-app" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd http://xmlns.oracle.com/weblogic/weblogic-web-app http://xmlns.oracle.com/weblogic/weblogic-web-app/1.0/weblogic-web-app.xsd">
   <context-root>/users</context-root>
   <security-role-assignment>
-    <role-name>Administrators</role-name>
-    <principal-name>*</principal-name>
+    <role-name>user</role-name>
+    <principal-name>Administrators</principal-name>
   </security-role-assignment>
 </weblogic-web-app>
