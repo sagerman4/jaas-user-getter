@@ -8,6 +8,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import com.github.sagerman4.auth.AuthContext;
 
 @Path("userid")
 public class JaasUserGetter {
@@ -15,6 +16,6 @@ public class JaasUserGetter {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getUserid(@Context HttpServletRequest req){
-        return Response.ok(new Gson().toJson(req.getUserPrincipal().getName())).build();
+        return Response.ok(new Gson().toJson(AuthContext.getAuthState().getUserId())).build();
     }
 }
